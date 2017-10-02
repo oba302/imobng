@@ -1,0 +1,79 @@
+<header class="app-header navbar">
+    <button class="navbar-toggler mobile-sidebar-toggler hidden-lg-up" type="button">&#9776;</button>
+    <a class="navbar-brand" href="#"></a>
+    
+    <ul class="nav navbar-nav hidden-md-down">
+        <li class="nav-item">
+            <a class="nav-link navbar-toggler sidebar-toggler" href="#">&#9776;</a>
+        </li>
+        <li class="nav-item px-1">
+            <a class="nav-link" href="#">Dashboard</a>
+        </li>
+        <li class="nav-item px-1">
+            <a class="nav-link" href="#">Users</a>
+        </li>
+        <li class="nav-item px-1">
+            <a class="nav-link" href="#">Settings</a>
+        </li>
+    </ul>
+
+    <ul class="nav navbar-nav ml-auto">
+
+        <li class="nav-item dropdown" dropdown (onToggle)="toggled($event)">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle>                
+                <span class="hidden-md-down">{{currentUser}}</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" dropdownMenu aria-labelledby="simple-dropdown">
+                <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a>
+                <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Setting</a>
+                <a class="dropdown-item" href="#"><i class="fa fa-usd"></i> Payments<span class="badge badge-default">42</span></a>
+                <a class="dropdown-item" href="#"><i class="fa fa-file"></i> Projects<span class="badge badge-primary">42</span></a>
+                <div class="divider"></div>
+                <a class="dropdown-item" href="#"><i class="fa fa-shield"></i> Lock account</a>
+                <a class="dropdown-item" [routerLink]="['/account/login']"><i class="fa fa-lock"></i> Logout</a>
+            </div>
+        </li>
+
+        <li class="nav-item hidden-md-down">
+            <a class="nav-link navbar-toggler aside-menu-toggler" href="#">&#9776;</a>
+        </li>
+
+    </ul>
+
+
+</header>
+
+<div class="app-body">
+    <div class="sidebar">
+        <nav class="sidebar-nav">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" [routerLink]="['/dashboards']"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-info">NEW</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" [routerLink]="['/dashboards/new']"><i class="icon-speedometer"></i> New Dash</a>
+                </li>          
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main content -->
+    <main class="main">
+
+        <!-- Breadcrumb -->
+        <ol class="breadcrumb">
+            <breadcrumbs></breadcrumbs>
+        </ol>
+
+        <div class="container-fluid">
+            <router-outlet></router-outlet>
+        </div>
+        <!-- /.conainer-fluid -->
+    </main>
+</div>
+
+<footer class="app-footer">
+    <a href="http://montdata.com">MontData</a> &copy; 2017 creativeLabs.
+    <span class="float-right">Powered by <a href="http://montdata.com">MontData</a>
+    </span>
+</footer>
